@@ -92,6 +92,8 @@ void STokenizer::make_table(int _table[][MAX_COLUMNS])
 	
 	// SPACE TOKEN MACHINE
 	set_table_cell(_table, SPACE_START, (int) ' ', SPACE_START + 1);
+	set_table_cell(_table, SPACE_START, (int) '\n', SPACE_START + 1);
+	set_table_cell(_table, SPACE_START, (int) '\t', SPACE_START + 1);
 	set_table_cell(_table, SPACE_START + 1, (int) ' ', SPACE_START + 1);
 	// specify success states
 	set_table_success(_table, SPACE_START, false);
@@ -101,47 +103,37 @@ void STokenizer::make_table(int _table[][MAX_COLUMNS])
 	set_table_row(_table, UNKNOWN_START, 1, 255, UNKNOWN_START + 1);
 	set_table_success(_table, UNKNOWN_START, false);
 	set_table_success(_table, UNKNOWN_START + 1);
-	
-//	for (int i = 0; i < MAX_ROWS; i++)
-//	{
-//		std::cout << start_state_to_string(i) << ": " << _table[i][0] << "\n";
-//	}
 }
 
 bool STokenizer::get_token(int start_state, string& token)
 {
 	int last_state = start_state;
 	token = "";
-	while (start_state > -1 && _pos < MAX_BUFFER)
+	while (start_state > -1 && !_done && _pos < MAX_BUFFER)
 	{
-//		std::cout << "start_state: " << start_state_to_string(start_state) << "\n";
-//		std::cout << "position: " << _pos << "\n";
 		int ascii = _buffer[_pos];
 		if (ascii == 0) {
 			// end of string
-//			std::cout << "end of string (" << ascii << " at " << _pos << ")\n";
 			_pos = MAX_BUFFER;
+			_done = true;
 			break;
 		}
-//		std::cout << "ascii: " << ascii << "\n";
 		int next_state = _table[start_state][ascii];
-//		std::cout << "next_state: " << next_state << "\n";
 		if (next_state > -1)
 		{
+			// transition is valid; append character to token
 			token += _buffer[_pos];
 			_pos++;
-//			std::cout << start_state_to_string(start_state) << ": next_state valid; increased position to " << _pos << ".\n";
 		}
 		last_state = start_state;
 		start_state = next_state;
 	}
-//	std::cout << "last state: " << last_state << ":" << _table[last_state][0] << "\n";
 	if (_table[last_state][0] > 0)
 	{
-//		std::cout << "known token: '" << token << "'\n";
+		// there was a success state, so a valid token was found
 		return true;
 	}
-//	std::cout << "no token recognized. position not incremented.\n";
+	// never entered a success state, so no token was found
 	return false;
 }
 
@@ -165,7 +157,6 @@ STokenizer& operator >> (STokenizer& s, Token& t)
 		s.get_token(UNKNOWN_START, token);
 		t = Token(token, UNKNOWN_TYPE);
 	}
-//	std::cout << token << " >> Token\n";
 	
 	return s;
 }
@@ -188,9 +179,9 @@ void STokenizer::set_string(char *str)
 }
 
 bool STokenizer::more() {
-	return _pos < MAX_BUFFER;
+	return !done();
 }
 
 bool STokenizer::done() {
-	return !more();
+	return _done;
 }

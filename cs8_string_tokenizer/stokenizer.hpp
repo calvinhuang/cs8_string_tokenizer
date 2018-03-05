@@ -56,6 +56,7 @@ private:
 	//---------------------------------
 	char _buffer[MAX_BUFFER];       //input string
 	int _pos;                       //current position in the string
+	bool _done = false;				//whether there are any tokens left to parse
 	static int _table[MAX_ROWS][MAX_COLUMNS];
 	
 };
