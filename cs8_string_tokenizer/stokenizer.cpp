@@ -114,8 +114,14 @@ bool STokenizer::get_token(int start_state, string& token)
 		int ascii = _buffer[_pos];
 		if (ascii == 0) {
 			// end of string
-			_pos = MAX_BUFFER;
-			_done = true;
+//			std::cout << "end of string at " << _pos << "\n";
+			if (token.length() == 0)
+			{
+				// immediate read of null means no more tokens
+				// otherwise, let the next token read attempt trigger done state
+				_pos = MAX_BUFFER;
+				_done = true;
+			}
 			break;
 		}
 		int next_state = _table[start_state][ascii];
@@ -131,6 +137,7 @@ bool STokenizer::get_token(int start_state, string& token)
 	if (_table[last_state][0] > 0)
 	{
 		// there was a success state, so a valid token was found
+//		std::cout << "token found: '" << token << "'\n";
 		return true;
 	}
 	// never entered a success state, so no token was found
