@@ -1,0 +1,268 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FFC51D972045EC140067DCBF /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FFC51D962045EC140067DCBF /* main.cpp */; };
+		FFC51D9F2045EC370067DCBF /* stokenizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FFC51D9D2045EC370067DCBF /* stokenizer.cpp */; };
+		FFC51DA2204882520067DCBF /* token.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FFC51DA0204882520067DCBF /* token.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FFC51D912045EC140067DCBF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		FFC51D932045EC140067DCBF /* cs8_string_tokenizer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = cs8_string_tokenizer; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFC51D962045EC140067DCBF /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		FFC51D9D2045EC370067DCBF /* stokenizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stokenizer.cpp; sourceTree = "<group>"; };
+		FFC51D9E2045EC370067DCBF /* stokenizer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = stokenizer.hpp; sourceTree = "<group>"; };
+		FFC51DA0204882520067DCBF /* token.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = token.cpp; sourceTree = "<group>"; };
+		FFC51DA1204882520067DCBF /* token.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = token.hpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FFC51D902045EC140067DCBF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FFC51D8A2045EC140067DCBF = {
+			isa = PBXGroup;
+			children = (
+				FFC51D952045EC140067DCBF /* cs8_string_tokenizer */,
+				FFC51D942045EC140067DCBF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FFC51D942045EC140067DCBF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FFC51D932045EC140067DCBF /* cs8_string_tokenizer */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FFC51D952045EC140067DCBF /* cs8_string_tokenizer */ = {
+			isa = PBXGroup;
+			children = (
+				FFC51D962045EC140067DCBF /* main.cpp */,
+				FFC51D9D2045EC370067DCBF /* stokenizer.cpp */,
+				FFC51D9E2045EC370067DCBF /* stokenizer.hpp */,
+				FFC51DA0204882520067DCBF /* token.cpp */,
+				FFC51DA1204882520067DCBF /* token.hpp */,
+			);
+			path = cs8_string_tokenizer;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FFC51D922045EC140067DCBF /* cs8_string_tokenizer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FFC51D9A2045EC140067DCBF /* Build configuration list for PBXNativeTarget "cs8_string_tokenizer" */;
+			buildPhases = (
+				FFC51D8F2045EC140067DCBF /* Sources */,
+				FFC51D902045EC140067DCBF /* Frameworks */,
+				FFC51D912045EC140067DCBF /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = cs8_string_tokenizer;
+			productName = cs8_string_tokenizer;
+			productReference = FFC51D932045EC140067DCBF /* cs8_string_tokenizer */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FFC51D8B2045EC140067DCBF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Calvin Huang";
+				TargetAttributes = {
+					FFC51D922045EC140067DCBF = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = M6U423R2NB;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = FFC51D8E2045EC140067DCBF /* Build configuration list for PBXProject "cs8_string_tokenizer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = FFC51D8A2045EC140067DCBF;
+			productRefGroup = FFC51D942045EC140067DCBF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FFC51D922045EC140067DCBF /* cs8_string_tokenizer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FFC51D8F2045EC140067DCBF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FFC51D972045EC140067DCBF /* main.cpp in Sources */,
+				FFC51D9F2045EC370067DCBF /* stokenizer.cpp in Sources */,
+				FFC51DA2204882520067DCBF /* token.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		FFC51D982045EC140067DCBF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		FFC51D992045EC140067DCBF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		FFC51D9B2045EC140067DCBF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = M6U423R2NB;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		FFC51D9C2045EC140067DCBF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = M6U423R2NB;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FFC51D8E2045EC140067DCBF /* Build configuration list for PBXProject "cs8_string_tokenizer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FFC51D982045EC140067DCBF /* Debug */,
+				FFC51D992045EC140067DCBF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FFC51D9A2045EC140067DCBF /* Build configuration list for PBXNativeTarget "cs8_string_tokenizer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FFC51D9B2045EC140067DCBF /* Debug */,
+				FFC51D9C2045EC140067DCBF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FFC51D8B2045EC140067DCBF /* Project object */;
+}
