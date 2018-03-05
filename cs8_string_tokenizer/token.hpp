@@ -16,7 +16,8 @@ using namespace std;
 const int UNKNOWN_TYPE = -1;
 const int ALPHA_TYPE = 0;
 const int NUMBER_TYPE = 1;
-const int SPACE_TYPE = 2;
+const int PUNCTUATION_TYPE = 2;
+const int SPACE_TYPE = 3;
 
 
 class Token

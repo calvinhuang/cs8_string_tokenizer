@@ -14,13 +14,14 @@
 using namespace std;
 
 const size_t MAX_COLUMNS = 256;
-const size_t MAX_ROWS = 10;
+const size_t MAX_ROWS = 12;
 const size_t MAX_BUFFER = 102400;
 
 const int NUMBER_START = 0;
 const int ALPHA_START = 4;
 const int SPACE_START = 6;
-const int UNKNOWN_START = 8;
+const int PUNCTUATION_START = 8;
+const int UNKNOWN_START = 10;
 
 
 class STokenizer
@@ -37,7 +38,7 @@ public:
 	friend STokenizer& operator >> (STokenizer& s, Token& t);
 	
 	//set a new string as the input string
-	void set_string(char str[]);
+	void set_string(const char str[]);
 	bool get_token(int start_state, string& token);
 	
 private:
@@ -56,7 +57,6 @@ private:
 	//---------------------------------
 	char _buffer[MAX_BUFFER];       //input string
 	int _pos;                       //current position in the string
-	bool _done = false;				//whether there are any tokens left to parse
 	static int _table[MAX_ROWS][MAX_COLUMNS];
 	
 };

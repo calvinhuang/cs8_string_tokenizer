@@ -24,6 +24,9 @@ string start_state_to_string(int start_state)
 		case SPACE_START:
 		case SPACE_START + 1:
 			return "SPACE";
+		case PUNCTUATION_START:
+		case PUNCTUATION_START + 1:
+			return "PUNCTUATION";
 		default:
 			return "UNKNOWN";
 	}
@@ -95,9 +98,26 @@ void STokenizer::make_table(int _table[][MAX_COLUMNS])
 	set_table_cell(_table, SPACE_START, (int) '\n', SPACE_START + 1);
 	set_table_cell(_table, SPACE_START, (int) '\t', SPACE_START + 1);
 	set_table_cell(_table, SPACE_START + 1, (int) ' ', SPACE_START + 1);
+	set_table_cell(_table, SPACE_START + 1, (int) '\n', SPACE_START + 1);
+	set_table_cell(_table, SPACE_START + 1, (int) '\t', SPACE_START + 1);
 	// specify success states
 	set_table_success(_table, SPACE_START, false);
 	set_table_success(_table, SPACE_START + 1);
+	set_table_success(_table, ALPHA_START + 1);
+	
+	// PUNCTUATION TOKEN MACHINE
+	set_table_cell(_table, PUNCTUATION_START, (int) '.', PUNCTUATION_START + 1);
+	set_table_cell(_table, PUNCTUATION_START, (int) ',', PUNCTUATION_START + 1);
+	set_table_cell(_table, PUNCTUATION_START, (int) ';', PUNCTUATION_START + 1);
+	set_table_cell(_table, PUNCTUATION_START, (int) ':', PUNCTUATION_START + 1);
+	set_table_cell(_table, PUNCTUATION_START, (int) '"', PUNCTUATION_START + 1);
+	set_table_cell(_table, PUNCTUATION_START, (int) '?', PUNCTUATION_START + 1);
+	set_table_cell(_table, PUNCTUATION_START, (int) '!', PUNCTUATION_START + 1);
+	set_table_cell(_table, PUNCTUATION_START, (int) '(', PUNCTUATION_START + 1);
+	set_table_cell(_table, PUNCTUATION_START, (int) ')', PUNCTUATION_START + 1);
+	// specify success states
+	set_table_success(_table, PUNCTUATION_START, false);
+	set_table_success(_table, PUNCTUATION_START + 1);
 	
 	// UNKNOWN TOKEN MACHINE
 	set_table_row(_table, UNKNOWN_START, 1, 255, UNKNOWN_START + 1);
@@ -109,22 +129,26 @@ bool STokenizer::get_token(int start_state, string& token)
 {
 	int last_state = start_state;
 	token = "";
-	while (start_state > -1 && !_done && _pos < MAX_BUFFER)
+	while (start_state > -1 && !done())
 	{
 		int ascii = _buffer[_pos];
-		if (ascii == 0) {
+		int next_state = -1;
+		if (ascii == 0)
+		{
 			// end of string
-//			std::cout << "end of string at " << _pos << "\n";
 			if (token.length() == 0)
 			{
 				// immediate read of null means no more tokens
 				// otherwise, let the next token read attempt trigger done state
 				_pos = MAX_BUFFER;
-				_done = true;
+				break;
 			}
-			break;
 		}
-		int next_state = _table[start_state][ascii];
+		else
+		{
+			next_state = _table[start_state][ascii];
+		}
+		
 		if (next_state > -1)
 		{
 			// transition is valid; append character to token
@@ -137,7 +161,6 @@ bool STokenizer::get_token(int start_state, string& token)
 	if (_table[last_state][0] > 0)
 	{
 		// there was a success state, so a valid token was found
-//		std::cout << "token found: '" << token << "'\n";
 		return true;
 	}
 	// never entered a success state, so no token was found
@@ -159,6 +182,10 @@ STokenizer& operator >> (STokenizer& s, Token& t)
 	{
 		t = Token(token, SPACE_TYPE);
 	}
+	else if (s.get_token(PUNCTUATION_START, token))
+	{
+		t = Token(token, PUNCTUATION_TYPE);
+	}
 	else
 	{
 		s.get_token(UNKNOWN_START, token);
@@ -179,7 +206,7 @@ STokenizer::STokenizer()
 	make_table(_table);
 }
 
-void STokenizer::set_string(char *str)
+void STokenizer::set_string(const char *str)
 {
 	strcpy(_buffer, str);
 	_pos = 0;
@@ -190,5 +217,5 @@ bool STokenizer::more() {
 }
 
 bool STokenizer::done() {
-	return _done;
+	return _pos >= MAX_BUFFER;
 }

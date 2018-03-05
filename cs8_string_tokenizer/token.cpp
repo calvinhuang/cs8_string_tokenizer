@@ -37,6 +37,8 @@ string token_type_to_string(int type)
 			return "NUMBER";
 		case SPACE_TYPE:
 			return "SPACE";
+		case PUNCTUATION_TYPE:
+			return "PUNCTUATION";
 		default:
 			return "UNKNOWN";
 	}
